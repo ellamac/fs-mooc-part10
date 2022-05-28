@@ -5,20 +5,21 @@ import AppBarTab from './AppBarTab';
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: Constants.statusBarHeight*2,
+        paddingTop: Constants.statusBarHeight * 2,
         paddingBottom: 20,
         paddingHorizontal: 20,
         backgroundColor: theme.colors.dark,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
     },
-    text: {
-        color: 'white',
-    }
+
 });
 
 const AppBar = () => {
     return <View style={styles.container}>
         <AppBarTab>Repositories</AppBarTab>
-       </View>;
+    </View>;
 };
 
 export default AppBar;

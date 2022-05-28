@@ -1,25 +1,26 @@
+import { StyleSheet, View } from 'react-native';
+import { Route, Redirect } from 'react-router-native';
 
-import { StyleSheet, View} from 'react-native';
 import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
+import theme from '../theme';
 
-
-// eslint-disable-next-line no-unused-vars
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1,
-        flexShrink: 1,
-        backgroundColor: '#e1e4e8',
-    },
+  container: {
+    backgroundColor: theme.colors.mainBackground,
+    flexGrow: 1,
+    flexShrink: 1,
+  },
 });
 
 const Main = () => {
-    return (
-        <>
-        <AppBar />
-        <View style={styles.container}><RepositoryList /></View>
-        </>
-    );
+  return (
+    <View style={styles.container}>
+      <AppBar />
+      <Route exact path="/"><RepositoryList /></Route>
+      <Route path="*"><Redirect to="/" /></Route>
+    </View>
+  );
 };
 
 export default Main;
