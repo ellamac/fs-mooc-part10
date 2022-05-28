@@ -10,7 +10,6 @@ const RepositoryItem = ({ item }) => {
     const styles = StyleSheet.create({
         repositories: {
             padding: 15,
-            marginBottom: 5,
             backgroundColor: 'white',
         },
         logo: {
@@ -26,7 +25,6 @@ const RepositoryItem = ({ item }) => {
             alignItems: 'flex-start',
             justifyContent: 'space-between',
             flexShrink: 1,
-
         },
         info: {
             marginBottom: 8,
