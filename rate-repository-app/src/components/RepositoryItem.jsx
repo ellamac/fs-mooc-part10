@@ -25,7 +25,6 @@ const RepositoryItem = ({ item }) => {
             flexShrink: 1,
             alignItems: 'flex-start',
             justifyContent: 'space-between',
-            flexShrink: 1,
         },
         info: {
             marginBottom: 8,
