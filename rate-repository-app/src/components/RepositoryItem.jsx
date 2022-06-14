@@ -23,6 +23,7 @@ const RepositoryItem = ({ item }) => {
             paddingBottom: 10,
             display: 'flex',
             flexDirection: 'column',
+            flexShrink: 1,
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
@@ -56,7 +57,7 @@ const RepositoryItem = ({ item }) => {
                 <View style={styles.infos}>
                     <Subheading style={styles.info}>{item.fullName}</Subheading>
                     <Text style={styles.info} color="textSecondary">{item.description}</Text>
-                    <Text style={styles.language} color="light">{item.language}</Text>
+                    <View style= {styles.language}><Text color="light">{item.language}</Text></View>  
                 </View>
             </View>
           <RepositoryItemStats item={item} />
