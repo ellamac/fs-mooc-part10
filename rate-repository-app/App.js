@@ -11,6 +11,7 @@ const apolloClient = createApolloClient();
 const App = () => {
   console.log(Constants.manifest.extra.env);
   console.log(Constants.manifest.extra.apolloUri);
+  Constants.manifest.extra.apolloUri ? console.log("if loading keeps on being true, check that .env has the correct ip!!!"): console.log('it should be working now.....');
   return (
     <>
       <NativeRouter>

@@ -8,13 +8,10 @@ const useRepositories = () => {
     fetchPolicy: 'cache-and-network',
   });
 
-console.log('loading: ');
-console.log(loading);
-
   return (
     loading 
       ? { loading, error}
-      : { repositories: data.repositories, loading, error}
+      : { repositories: data.repositories, loading, error, refetch}
   );
 };
 
