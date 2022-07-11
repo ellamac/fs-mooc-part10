@@ -1,5 +1,6 @@
 import Text from './Text';
 import {  Pressable, View, StyleSheet } from 'react-native';
+import { useHistory } from 'react-router-native';
 import FormikTextInput from './FormikTextInput';
 import { Formik } from 'formik';
 import theme from '../theme'
@@ -53,6 +54,7 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
+  const history = useHistory();
   const [signIn] = useSignIn();
 
   const onSubmit = async (values) => {
@@ -64,6 +66,7 @@ const SignIn = () => {
     try {
       const { data } = await signIn({ username, password});
       console.log(data);
+      history.push('/');
     }catch (e) {
       console.log(e);
     }
