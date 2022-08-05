@@ -3,7 +3,7 @@ import { View, Image, StyleSheet } from 'react-native';
 import Subheading from './Subheading';
 import Text from './Text';
 import theme from '../theme';
-import RepositoryItemStats from './RepositoryItemStats';
+import formatInThousands from '../utils/formatInThousands';
 
 const RepositoryItem = ({ item }) => {
 
@@ -59,7 +59,24 @@ const RepositoryItem = ({ item }) => {
                     <View style={styles.language}><Text color="light">{item.language}</Text></View>
                 </View>
             </View>
-            <RepositoryItemStats item={item} />
+            <View style={styles.stats}>
+                <View style={styles.stat}>
+                    <Text fontWeight="bold">{formatInThousands(item.stargazersCount)}</Text>
+                    <Text color="textSecondary">Stars</Text>
+                </View>
+                <View style={styles.stat}>
+                    <Text fontWeight="bold">{formatInThousands(item.forksCount)}</Text>
+                    <Text color="textSecondary">Forks</Text>
+                </View>
+                <View style={styles.stat}>
+                    <Text fontWeight="bold">{formatInThousands(item.reviewCount)}</Text>
+                    <Text color="textSecondary">Reviews</Text>
+                </View>
+                <View style={styles.stat}>
+                    <Text fontWeight="bold">{formatInThousands(item.ratingAverage)}</Text>
+                    <Text color="textSecondary">Rating</Text>
+                </View>
+            </View>
         </View>
     );
 };
