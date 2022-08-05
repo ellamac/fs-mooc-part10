@@ -50,16 +50,16 @@ const RepositoryItem = ({ item }) => {
         },
     });
     return (
-        <View style={styles.repositories}>
+        <View testID="repositoryItem" style={styles.repositories}>
             <View style={styles.profile}>
                 <Image style={styles.logo} source={{ uri: item.ownerAvatarUrl }} />
                 <View style={styles.infos}>
                     <Subheading style={styles.info}>{item.fullName}</Subheading>
                     <Text style={styles.info} color="textSecondary">{item.description}</Text>
-                    <View style= {styles.language}><Text color="light">{item.language}</Text></View>  
+                    <View style={styles.language}><Text color="light">{item.language}</Text></View>
                 </View>
             </View>
-          <RepositoryItemStats item={item} />
+            <RepositoryItemStats item={item} />
         </View>
     );
 };
