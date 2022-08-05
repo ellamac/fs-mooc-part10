@@ -1,11 +1,12 @@
-import Text from './Text';
-import { Pressable, View, StyleSheet } from 'react-native';
+
+import { View, StyleSheet } from 'react-native';
 import { useHistory } from 'react-router-native';
 import FormikTextInput from './FormikTextInput';
 import { Formik } from 'formik';
 import theme from '../theme'
 import * as yup from 'yup';
 import useSignIn from '../hooks/useSignIn';
+import Button from './Button';
 
 const styles = StyleSheet.create({
   container: {
@@ -48,9 +49,9 @@ export const SignInForm = ({ onSubmit }) => {
     <View style={styles.container}>
       <FormikTextInput name="username" placeholder="Username" style={styles.child} autoCapitalize='none' />
       <FormikTextInput name="password" placeholder="Password" secureTextEntry style={styles.child} />
-      <Pressable onPress={onSubmit} style={styles.child}>
-        <Text fontWeight='bold' style={styles.submit}>Sign in</Text>
-      </Pressable>
+      <Button onPress={onSubmit}>
+        Sign in
+      </Button>
     </View>
   );
 };

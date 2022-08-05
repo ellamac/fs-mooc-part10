@@ -1,11 +1,15 @@
 
 import { View, Image, StyleSheet } from 'react-native';
+import { useParams } from 'react-router-native';
 import Subheading from './Subheading';
 import Text from './Text';
 import theme from '../theme';
 import formatInThousands from '../utils/formatInThousands';
+import Button from './Button';
+import * as Linking from 'expo-linking';
 
 const RepositoryItem = ({ item }) => {
+    const { id } = useParams();
 
     const styles = StyleSheet.create({
         repositories: {
@@ -48,9 +52,18 @@ const RepositoryItem = ({ item }) => {
             padding: 5,
             borderRadius: 4,
         },
+        button: {
+            marginTop: 15,
+            padding: 15,
+            borderRadius: 4,
+            backgroundColor: theme.colors.primary,
+            color: theme.colors.light,
+            textAlign: 'center',
+        },
     });
     return (
         <View testID="repositoryItem" style={styles.repositories}>
+
             <View style={styles.profile}>
                 <Image style={styles.logo} source={{ uri: item.ownerAvatarUrl }} />
                 <View style={styles.infos}>
@@ -77,6 +90,11 @@ const RepositoryItem = ({ item }) => {
                     <Text color="textSecondary">Rating</Text>
                 </View>
             </View>
+            {
+                id ? <Button onPress={() => Linking.openURL(item.url)}>Open in Github</Button> : undefined
+            }
+
+
         </View>
     );
 };
