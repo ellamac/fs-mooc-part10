@@ -43,6 +43,19 @@ query repository($repositoryId: ID!) {
       ratingAverage
       url
     id
+    reviews {
+      edges {
+        node {
+          id
+          rating
+          createdAt
+          text
+           user {
+            username
+          }
+        }
+      }
+    }
   }
 } 
 `
