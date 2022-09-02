@@ -17,13 +17,14 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 100,
         borderColor: theme.colors.primary,
-        flexGrow: 1,
+        flexGrow: 0,
         flexShrink: 0,
         flexBasis: 50,
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
         alignItems: 'center',
+        marginRight: 10,
     },
     ratingText: {
         color: theme.colors.primary,
@@ -34,8 +35,20 @@ const styles = StyleSheet.create({
         flexGrow: 4,
         flexShrink: 0,
         flexBasis: 2,
-    }
+    },
+    username: {
+        fontWeight: theme.fontWeights.bold,
+    },
+    date: {
+        color: theme.colors.textSecondary,
+    },
 })
+
+const parseDate = (date) => {
+    const parsed = new Date(date);
+    const toLocale = parsed.toLocaleDateString();
+    return toLocale;
+};
 
 const ReviewItem = ({ review }) => {
     return (
@@ -44,8 +57,8 @@ const ReviewItem = ({ review }) => {
                 <Text style={styles.ratingText}>{review.rating}</Text>
             </View>
             <View style={styles.content}>
-                <Text>{review.user.username}</Text>
-                <Text>{review.createdAt}</Text>
+                <Text style={styles.username}>{review.user.username}</Text>
+                <Text style={styles.date}>{parseDate(review.createdAt)}</Text>
                 <Text>{review.text}</Text>
             </View>
         </View>
